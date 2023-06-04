@@ -1,0 +1,79 @@
+var pack = [[ANDROID_T_APPPACCAGE]];
+
+const { exec } = require("child_process");
+const accnames = [[PROF]]
+const deviceID = [[ANDROID_IPWIFI]] // замените на идентификатор вашего устройства
+//
+// Создание папки, если она не существует
+exec(`adb -s ${deviceID} shell "mkdir -p /storage/emulated/0/filepinterest/"`, (err, stdout, stderr) => {
+  if (err) {
+    console.error(`exec error: ${err}`);
+    return;
+  }
+
+  console.log(`Result: ${stdout}`);
+});
+// Создание папки, если она не существует 2
+exec(`adb -s ${deviceID} shell "mkdir -p /storage/emulated/0/filepinterest/${accnames}/"`, (err, stdout, stderr) => {
+  if (err) {
+    console.error(`exec error: ${err}`);
+    return;
+  }
+
+  console.log(`Result: ${stdout}`);
+});
+// 
+// Создание папки, если она не существует 3
+exec(`adb -s ${deviceID} shell "mkdir -p /storage/emulated/0/filepinterest/${accnames}/package_cache"`, (err, stdout, stderr) => {
+  if (err) {
+    console.error(`exec error: ${err}`);
+    return;
+  }
+
+  console.log(`Result: ${stdout}`);
+});
+// Создание папки, если она не существует 4
+exec(`adb -s ${deviceID} shell "mkdir -p /storage/emulated/0/filepinterest/${accnames}/profilescur0/"`, (err, stdout, stderr) => {
+  if (err) {
+    console.error(`exec error: ${err}`);
+    return;
+  }
+
+  console.log(`Result: ${stdout}`);
+});
+// Создание папки, если она не существует 5
+exec(`adb -s ${deviceID} shell "mkdir -p /storage/emulated/0/filepinterest/${accnames}/profilesref0/"`, (err, stdout, stderr) => {
+  if (err) {
+    console.error(`exec error: ${err}`);
+    return;
+  }
+
+  console.log(`Result: ${stdout}`);
+});
+// ============ 1
+exec(`adb -s ${deviceID} shell cp -R sbin/.magisk/mirror/data/system/package_cache/1/com.pinterest-Tp1TMvrPhOfCDq4RkobMnQ==-0 /storage/emulated/0/filepinterest/${accnames}/package_cache`, (err, stdout, stderr) => {
+  if (err) {
+    console.error(`exec error: ${err}`);
+    return;
+  }
+
+  console.log(`Result: ${stdout}`);
+});
+// ============ 2
+exec(`adb -s ${deviceID} shell cp -R sbin/.magisk/mirror/data/misc/profiles/cur/0/com.pinterest /storage/emulated/0/filepinterest/${accnames}/profilescur0/`, (err, stdout, stderr) => {
+  if (err) {
+    console.error(`exec error: ${err}`);
+    return;
+  }
+
+  console.log(`Result: ${stdout}`);
+});
+// ============ 4
+exec(`adb -s ${deviceID} shell cp -R sbin/.magisk/mirror/data/misc/profiles/ref/com.pinterest /storage/emulated/0/filepinterest/${accnames}/profilesref0/`, (err, stdout, stderr) => {
+  if (err) {
+    console.error(`exec error: ${err}`);
+    return;
+  }
+
+  console.log(`Result: ${stdout}`);
+});
